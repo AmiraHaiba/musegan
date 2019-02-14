@@ -32,6 +32,7 @@ def main():
         data = np.load(filepath)
         data = data.astype(dtype)
         print("Saving data to shared memory.")
+	sa.delete(name);
         sa_array = sa.create(name, data.shape, data.dtype)
         np.copyto(sa_array, data)
     else:
